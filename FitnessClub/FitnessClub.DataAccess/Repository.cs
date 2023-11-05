@@ -1,21 +1,27 @@
-﻿using FitnessClub.DataAccess.Entities;
+﻿using System.Linq.Expressions;
+using FitnessClub.DataAccess.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace FitnessClub.DataAccess;
 
 public class Repository<T> : IRepository<T> where T : BaseEntity
 {
-    public Repository(IDbContextFactory<DbContext> contextFactory)
+    public Repository(IDbContextFactory<FitnessClubDbContext> contextFactory)
     {
         _contextFactory = contextFactory;
     }
 
-    public IQueryable<T> GetAll()
+    public IEnumerable<T> GetAll()
     {
         using var context = _contextFactory.CreateDbContext();
-        return context.Set<T>();
+        return context.Set<T>().ToList();
     }
 
+    public IEnumerable<T> GetAll(Expression<Func<T, bool>> filter)
+    {
+        using var context = _contextFactory.CreateDbContext();
+        return context.Set<T>().Where(filter).ToList();
+    }
     public T? GetById(int id)
     {
         using var context = _contextFactory.CreateDbContext();
@@ -58,5 +64,5 @@ public class Repository<T> : IRepository<T> where T : BaseEntity
         context.SaveChanges();
     }
 
-    private readonly IDbContextFactory<DbContext> _contextFactory;
+    private readonly IDbContextFactory<FitnessClubDbContext> _contextFactory;
 }
