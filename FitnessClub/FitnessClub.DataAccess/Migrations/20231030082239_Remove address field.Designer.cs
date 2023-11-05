@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FitnessClub.DataAccess.Migrations
 {
     [DbContext(typeof(FitnessClubDbContext))]
-    [Migration("20231028155716_Initial migration")]
-    partial class Initialmigration
+    [Migration("20231030082239_Remove address field")]
+    partial class Removeaddressfield
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -54,6 +54,49 @@ namespace FitnessClub.DataAccess.Migrations
                     b.ToTable("clubs");
                 });
 
+            modelBuilder.Entity("FitnessClub.DataAccess.Entities.TrainerEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Birthday")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("CreationTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("ExternalId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ModificationTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Position")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Sex")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ExternalId")
+                        .IsUnique();
+
+                    b.ToTable("trainers");
+                });
+
             modelBuilder.Entity("FitnessClub.DataAccess.Entities.UserEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -64,6 +107,9 @@ namespace FitnessClub.DataAccess.Migrations
 
                     b.Property<DateTime>("Birthday")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("ClubId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreationTime")
                         .HasColumnType("datetime2");
@@ -88,10 +134,28 @@ namespace FitnessClub.DataAccess.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ClubId");
+
                     b.HasIndex("ExternalId")
                         .IsUnique();
 
                     b.ToTable("users");
+                });
+
+            modelBuilder.Entity("FitnessClub.DataAccess.Entities.UserEntity", b =>
+                {
+                    b.HasOne("FitnessClub.DataAccess.Entities.ClubEntity", "Club")
+                        .WithMany("Users")
+                        .HasForeignKey("ClubId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Club");
+                });
+
+            modelBuilder.Entity("FitnessClub.DataAccess.Entities.ClubEntity", b =>
+                {
+                    b.Navigation("Users");
                 });
 #pragma warning restore 612, 618
         }
