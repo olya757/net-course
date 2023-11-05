@@ -1,6 +1,6 @@
 ﻿using Serilog;
 
-namespace FitnessClub.WebAPI.IoC
+namespace FitnessClub.Service.IoC
 {
     /// <summary>
     /// Static class for serilog configuration
