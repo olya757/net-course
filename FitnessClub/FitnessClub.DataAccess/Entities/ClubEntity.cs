@@ -7,4 +7,6 @@ namespace FitnessClub.DataAccess.Entities;
 public class ClubEntity : BaseEntity
 {
     public string Title { get; set; }
+
+    public virtual ICollection<UserEntity> Users { get; set; }
 }
