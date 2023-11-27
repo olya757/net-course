@@ -14,6 +14,8 @@ builder.Services.AddControllers();
 DbContextConfigurator.ConfigureService(builder.Services, settings);
 SerilogConfigurator.ConfigureService(builder);
 SwaggerConfigurator.ConfigureServices(builder.Services);
+MapperConfigurator.ConfigureServices(builder.Services);
+ServicesConfigurator.ConfigureService(builder.Services); //11.12.2023 - deadline
 
 var app = builder.Build();
 
@@ -23,6 +25,6 @@ DbContextConfigurator.ConfigureApplication(app);
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
-app.MapControllers();
+app.MapControllers(); // create graph - search by url //localhost/users/id GET
 
 app.Run();
