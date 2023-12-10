@@ -3,5 +3,6 @@
     public class FitnessClubSettings
     {
         public string FitnessClubDbContextConnectionString { get; set; }
+        public int MinimumTrainerAge { get; set; } = 18;
     }
 }

@@ -15,7 +15,7 @@ DbContextConfigurator.ConfigureService(builder.Services, settings);
 SerilogConfigurator.ConfigureService(builder);
 SwaggerConfigurator.ConfigureServices(builder.Services);
 MapperConfigurator.ConfigureServices(builder.Services);
-ServicesConfigurator.ConfigureService(builder.Services); //11.12.2023 - deadline
+ServicesConfigurator.ConfigureService(builder.Services, settings); //11.12.2023 - deadline
 
 var app = builder.Build();
 

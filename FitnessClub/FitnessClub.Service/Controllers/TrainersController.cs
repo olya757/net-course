@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using AutoMapper.Configuration;
 using FitnessClub.BL.Trainers;
 using FitnessClub.BL.Trainers.Entities;
 using FitnessClub.Service.Controllers.Entities;
 using Microsoft.AspNetCore.Mvc;
+using ILogger = Serilog.ILogger;
 
 namespace FitnessClub.Service.Controllers;
 
@@ -66,7 +66,7 @@ public class TrainersController : ControllerBase
         }
         catch (ArgumentException ex)
         {
-            _logger.LogError(ex.ToString()); //stack trace + message
+            _logger.Error(ex.ToString()); //stack trace + message
             return NotFound(ex.Message);
         }
     }
@@ -81,7 +81,7 @@ public class TrainersController : ControllerBase
         }
         catch (ArgumentException ex)
         {
-            _logger.LogError(ex.ToString());
+            _logger.Error(ex.ToString());
             return BadRequest(ex.Message);
         }
     }
