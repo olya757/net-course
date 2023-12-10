@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FitnessClub.DataAccess;
 
-public class Repository<T> : IRepository<T> where T : BaseEntity
+public class Repository<T> : IRepository<T> where T : class, IBaseEntity
 {
     public Repository(IDbContextFactory<FitnessClubDbContext> contextFactory)
     {
