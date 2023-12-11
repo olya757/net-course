@@ -2,11 +2,13 @@
 using FitnessClub.BL.Trainers;
 using FitnessClub.BL.Trainers.Entities;
 using FitnessClub.Service.Controllers.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ILogger = Serilog.ILogger;
 
 namespace FitnessClub.Service.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("[controller]")]
 public class TrainersController : ControllerBase
@@ -34,6 +36,7 @@ public class TrainersController : ControllerBase
         _logger = logger;
     }
 
+    [Authorize]
     [HttpGet] //trainers/
     public IActionResult GetAllTrainers()
     {
@@ -44,6 +47,7 @@ public class TrainersController : ControllerBase
         });
     }
 
+    [AllowAnonymous]
     [HttpGet]
     [Route("filter")] //trainers/filter?filter.sex=1&filter.age=20
     public IActionResult GetFilteredTrainers([FromQuery] TrainersFilter filter)
