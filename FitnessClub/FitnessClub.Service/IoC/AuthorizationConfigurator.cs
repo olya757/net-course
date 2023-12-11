@@ -12,11 +12,14 @@ public static class AuthorizationConfigurator
 {
     public static void ConfigureServices(this IServiceCollection services, FitnessClubSettings settings)
     {
-        services.AddIdentity<UserEntity, UserRoleEntity>()
+        services.AddIdentity<UserEntity, UserRoleEntity>(options =>
+            {
+                options.Password.RequireDigit = true;
+                options.Password.RequireUppercase = true;
+            })
             .AddEntityFrameworkStores<FitnessClubDbContext>()
             .AddSignInManager<SignInManager<UserEntity>>()
             .AddDefaultTokenProviders();
-
 
         services.AddIdentityServer()
             .AddInMemoryApiScopes(new[] { new ApiScope("api") })

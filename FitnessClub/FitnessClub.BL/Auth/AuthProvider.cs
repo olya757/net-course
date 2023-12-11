@@ -28,20 +28,21 @@ public class AuthProvider : IAuthProvider
 
     public async Task<TokensResponse> AuthorizeUser(string email, string password)
     {
-        var user = await _userManager.FindByEmailAsync(email);
+        var user = await _userManager.FindByEmailAsync(email); //IRepository<UserEntity> get user by email
         if (user is null)
         {
-            throw new Exception();
+            throw new Exception(); //UserNotFoundException, BusinessLogicException(Code.UserNotFound);
         }
+        
 
         var verificationPasswordResult = await _signInManager.CheckPasswordSignInAsync(user, password, false);
         if (!verificationPasswordResult.Succeeded)
         {
-            throw new Exception();
+            throw new Exception(); //AuthorizationException, BusinessLogicException(Code.PasswordOrLoginIsIncorrect);
         }
 
         var client = new HttpClient();
-        var discoveryDoc = await client.GetDiscoveryDocumentAsync(_identityServerUri);
+        var discoveryDoc = await client.GetDiscoveryDocumentAsync(_identityServerUri); //
         if (discoveryDoc.IsError)
         {
             throw new Exception();
@@ -67,5 +68,17 @@ public class AuthProvider : IAuthProvider
             AccessToken = tokenResponse.AccessToken,
             RefreshToken = tokenResponse.RefreshToken
         };
+    }
+
+    public async Task RegisterUser(string email, string password)
+    {
+        UserEntity userEntity = new UserEntity()
+        {
+            Email = email, //REQUIRED !!!!!!
+            UserName = email
+        };
+
+        var createUserResult = await _userManager.CreateAsync(userEntity, password);
+        
     }
 }

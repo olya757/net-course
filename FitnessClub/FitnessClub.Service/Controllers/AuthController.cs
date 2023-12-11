@@ -21,4 +21,11 @@ public class AuthController : ControllerBase
         var tokens = await _authProvider.AuthorizeUser(email, password);
         return Ok(tokens);
     }
+
+    [HttpPost]
+    [Route("register")]
+    public async Task<IActionResult> RegisterUser(string email, string password)
+    {
+        return Ok();
+    }
 }

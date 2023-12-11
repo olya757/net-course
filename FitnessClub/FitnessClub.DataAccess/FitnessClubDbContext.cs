@@ -16,6 +16,7 @@ public class FitnessClubDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        //default identity server tables
         modelBuilder.Entity<IdentityUserClaim<int>>().ToTable("user_claims");
         modelBuilder.Entity<IdentityUserLogin<int>>().ToTable("user_logins").HasNoKey();
         modelBuilder.Entity<IdentityUserToken<int>>().ToTable("user_tokens").HasNoKey();;
