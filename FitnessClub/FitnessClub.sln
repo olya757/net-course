@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FitnessClub.UnitTests", "Fi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitnessClub.BL.UnitTests", "FitnessClub.BL.UnitTests\FitnessClub.BL.UnitTests.csproj", "{38B200E5-998D-4DBE-AE8E-A1FEF1124C30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitnessClub.Service.Autotests", "FitnessClub.Service.Autotests\FitnessClub.Service.Autotests.csproj", "{46FA5B63-5B6C-467B-9919-DC0787170B69}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitnessClub.Service.UnitTests", "FitnessClub.Service.UnitTests\FitnessClub.Service.UnitTests.csproj", "{46FA5B63-5B6C-467B-9919-DC0787170B69}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

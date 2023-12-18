@@ -4,6 +4,7 @@ using FitnessClub.DataAccess.Entities;
 using FitnessClub.Service.Settings;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
 
 namespace FitnessClub.Service.IoC;
@@ -12,6 +13,7 @@ public static class AuthorizationConfigurator
 {
     public static void ConfigureServices(this IServiceCollection services, FitnessClubSettings settings)
     {
+        IdentityModelEventSource.ShowPII = true;
         services.AddIdentity<UserEntity, UserRoleEntity>(options =>
             {
                 options.Password.RequireDigit = true;
@@ -28,6 +30,14 @@ public static class AuthorizationConfigurator
                 new Client()
                 {
                     ClientName = settings.ClientId,
+                    ClientId = settings.ClientId,
+                    Enabled = true,
+                    AllowOfflineAccess = true,
+                    AllowedGrantTypes = new List<string>()
+                    {
+                        GrantType.ClientCredentials,
+                        GrantType.ResourceOwnerPassword
+                    },
                     ClientSecrets = new List<Secret>()
                     {
                         new(settings.ClientSecret.Sha256())

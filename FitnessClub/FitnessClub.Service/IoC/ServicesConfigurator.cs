@@ -19,6 +19,7 @@ public static class ServicesConfigurator
         services.AddScoped<IAuthProvider>(x =>
             new AuthProvider(x.GetRequiredService<SignInManager<UserEntity>>(),
                 x.GetRequiredService<UserManager<UserEntity>>(),
+                x.GetRequiredService<IHttpClientFactory>(),
                 settings.IdentityServerUri,
                 settings.ClientId,
                 settings.ClientSecret));

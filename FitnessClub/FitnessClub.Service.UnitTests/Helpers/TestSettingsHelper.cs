@@ -1,7 +1,6 @@
 using FitnessClub.Service.Settings;
-using Microsoft.Extensions.Configuration;
 
-namespace FitnessClub.Service.Autotests.Helpers;
+namespace FitnessClub.Service.UnitTests.Helpers;
 
 public static class TestSettingsHelper
 {
