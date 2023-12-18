@@ -15,11 +15,19 @@ public class AuthController : ControllerBase
     }
 
     [HttpGet]
-    [Route("login")]
-    public async Task<IActionResult> LoginUser(string email, string password)
+    [Route("login")] //.../auth/login
+    public async Task<IActionResult> LoginUser([FromQuery] string email, [FromQuery] string password)
     {
-        var tokens = await _authProvider.AuthorizeUser(email, password);
-        return Ok(tokens);
+        try
+        {
+            var tokens = await _authProvider.AuthorizeUser(email, password);
+
+            return Ok(tokens);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 
     [HttpPost]

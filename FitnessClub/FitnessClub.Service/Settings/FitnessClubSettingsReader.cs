@@ -6,6 +6,7 @@
         {
             return new FitnessClubSettings()
             {
+                ServiceUri = configuration.GetValue<Uri>("Uri"),
                 FitnessClubDbContextConnectionString = configuration.GetValue<string>("FitnessClubDbContext"),
                 IdentityServerUri = configuration.GetValue<string>("IdentityServerSettings:Uri"),
                 ClientId = configuration.GetValue<string>("IdentityServerSettings:ClientId"),

@@ -1,4 +1,3 @@
-using FitnessClub.Service.Controllers;
 using FitnessClub.Service.IoC;
 using FitnessClub.Service.Settings;
 
@@ -31,3 +30,5 @@ app.UseAuthorization();
 app.MapControllers(); // create graph - search by url //localhost/users/id GET
 
 app.Run();
+
+public partial class Program { }
