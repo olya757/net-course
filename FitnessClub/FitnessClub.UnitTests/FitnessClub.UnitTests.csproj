@@ -29,4 +29,20 @@
       <ProjectReference Include="..\FitnessClub.Service\FitnessClub.Service.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="FitnessClub.Service.Autotests\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="FitnessClub.Service.Autotests\obj\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="FitnessClub.Service.Autotests\obj\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="FitnessClub.Service.Autotests\obj\**" />
+    </ItemGroup>
+
 </Project>
