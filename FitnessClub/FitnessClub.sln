@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitnessClub.BL.UnitTests", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitnessClub.Service.UnitTests", "FitnessClub.Service.UnitTests\FitnessClub.Service.UnitTests.csproj", "{46FA5B63-5B6C-467B-9919-DC0787170B69}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitnessClub.Service.Autotests", "FitnessClub.Service.Autotests\FitnessClub.Service.Autotests.csproj", "{5A589010-6976-4F3C-B3A9-273E3C2CA271}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{46FA5B63-5B6C-467B-9919-DC0787170B69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46FA5B63-5B6C-467B-9919-DC0787170B69}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46FA5B63-5B6C-467B-9919-DC0787170B69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A589010-6976-4F3C-B3A9-273E3C2CA271}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A589010-6976-4F3C-B3A9-273E3C2CA271}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A589010-6976-4F3C-B3A9-273E3C2CA271}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A589010-6976-4F3C-B3A9-273E3C2CA271}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +61,7 @@ Global
 		{E0EE0EA0-CBE8-4988-8C25-E7A213212220} = {8E90E0FA-0B70-4983-8A83-2C1F913516B4}
 		{38B200E5-998D-4DBE-AE8E-A1FEF1124C30} = {8E90E0FA-0B70-4983-8A83-2C1F913516B4}
 		{46FA5B63-5B6C-467B-9919-DC0787170B69} = {8E90E0FA-0B70-4983-8A83-2C1F913516B4}
+		{5A589010-6976-4F3C-B3A9-273E3C2CA271} = {8E90E0FA-0B70-4983-8A83-2C1F913516B4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BB62DCBA-2D43-48F9-832C-C62C3BD694FB}

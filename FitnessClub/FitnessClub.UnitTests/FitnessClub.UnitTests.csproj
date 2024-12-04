@@ -30,10 +30,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="FitnessClub.Service.Autotests\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <Compile Remove="FitnessClub.Service.Autotests\obj\**" />
     </ItemGroup>
 

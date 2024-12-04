@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FitnessClub.BL.Helpers;
 using FitnessClub.BL.Trainers.Entities;
 using FitnessClub.DataAccess.Entities;
 
@@ -10,14 +11,13 @@ public class TrainersBLProfile : Profile
     {
         CreateMap<TrainerEntity, TrainerModel>()
             .ForMember(x => x.Id, y => y.MapFrom(src => src.ExternalId))
+            .ForMember(x => x.Age, y => y.MapFrom(src => AgeHelper.GetAge(src.Birthday)))
             .ForMember(x => x.FullName, y => y.MapFrom(src => $"{src.FirstName} {src.LastName}"));
 
         CreateMap<CreateTrainerModel, TrainerEntity>()
             .ForMember(x => x.Id, y => y.Ignore())
-            .ForMember(x=>x.ExternalId, y=>y.Ignore())
-            .ForMember(x=>x.ModificationTime, y=>y.Ignore())
-            .ForMember(x=>x.CreationTime, y=>y.Ignore());
-        
-
+            .ForMember(x => x.ExternalId, y => y.Ignore())
+            .ForMember(x => x.ModificationTime, y => y.Ignore())
+            .ForMember(x => x.CreationTime, y => y.Ignore());
     }
 }

@@ -1,6 +1,8 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003ATokenResponse_002Ecs_002Fl_003A_002E_002E_003F_002E_002E_003F_002E_002E_003F_002E_002E_003FAppData_003FRoaming_003FJetBrains_003FRider2024_002E2_003Fresharper_002Dhost_003FSourcesCache_003Ff3d8152b548498e4d79e3a916168859dd334baed544cc7b26efa3ca7dfd93f_003FTokenResponse_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=85b14983_002D1a94_002D4df3_002Da2b0_002D9b8e3a9cec2a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="TestGetAllTrainers" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;NUnit3x::38B200E5-998D-4DBE-AE8E-A1FEF1124C30::net7.0::FitnessClub.BL.UnitTests.Trainers.TrainersProviderTests.TestGetAllTrainers&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::38B200E5-998D-4DBE-AE8E-A1FEF1124C30::net7.0::FitnessClub.BL.UnitTests.Trainers.TrainersManagerTests.TestCreateTrainer_Success&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

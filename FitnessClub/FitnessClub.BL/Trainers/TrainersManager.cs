@@ -23,6 +23,12 @@ public class TrainersManager : ITrainersManager
         {
             throw new ArgumentException("Age must be greater than 18.");
         }
+        
+        var existingTrainer = _trainersRepository.GetAll(x=> x.FirstName==model.FirstName && x.LastName==model.LastName).FirstOrDefault();
+        if (existingTrainer != null)
+        {
+            throw new ArgumentException("There is already a trainer with the same first name and last name.");
+        }
 
         var entity = _mapper.Map<TrainerEntity>(model);
 
